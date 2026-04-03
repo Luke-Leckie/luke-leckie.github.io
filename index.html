@@ -1,92 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luke Leckie</title>
-    <style>
-        /* Styles */
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .header-image {
-            width: 100%;
-            position: relative;
-        }
-        .header-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            color: white;
-        }
-        .black-box {
-            background-color: black;
-            color: white;
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-        }
-        .projects-strip {
-            background-color: black;
-            color: white;
-            padding: 10px;
-            width: 100%;
-            text-align: center;
-        }
-        .content-section {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 0;
-        }
-        .content-section img {
-            max-width: 45%;
-            height: auto;
-        }
-        .content-text {
-            width: 50%;
-        }
-        .subtitle {
-            font-size: 20px;
-            font-weight: bold;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luke Leckie — Form, Cognition, and Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a1a;
+  --paper: #f6f3ed;
+  --accent: #8b4513;
+  --muted: #6b6560;
+  --rule: #d4cfc7;
+  --highlight: #e8dfd3;
+  --font-serif: 'EB Garamond', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 18px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--accent); color: var(--paper); }
+
+.container { max-width: 740px; margin: 0 auto; padding: 0 2rem; }
+
+/* --- Header --- */
+header { padding: 5rem 0 3rem; border-bottom: 1px solid var(--rule); }
+
+.header-inner { display: flex; gap: 2.2rem; align-items: flex-start; }
+
+@media (max-width: 600px) {
+  .header-inner { flex-direction: column; align-items: center; text-align: center; }
+  nav, .links-bar { justify-content: center; }
+}
+
+.portrait {
+  width: 150px; height: 150px; border-radius: 4px;
+  background: var(--highlight); border: 1px solid var(--rule);
+  flex-shrink: 0; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+.portrait-placeholder {
+  font-family: var(--font-mono); font-size: 0.6rem;
+  color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;
+}
+
+.header-text h1 { font-size: 2.4rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+.header-text .subtitle { font-size: 1.05rem; color: var(--muted); font-style: italic; margin-bottom: 1.2rem; }
+
+nav { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+nav a {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+nav a:hover { color: var(--accent); }
+
+.links-bar { margin-top: 0.8rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.links-bar a {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.04em;
+  color: var(--accent); text-decoration: none;
+  border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.links-bar a:hover { border-bottom-color: var(--accent); }
+
+/* --- Sections --- */
+section { padding: 3rem 0; border-bottom: 1px solid var(--rule); }
+section:last-of-type { border-bottom: none; }
+
+.section-label {
+  font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem;
+}
+
+h2 { font-size: 1.5rem; font-weight: 500; margin-bottom: 1rem; letter-spacing: -0.01em; }
+p { margin-bottom: 1rem; font-size: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+a.il { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+a.il:hover { border-bottom-color: var(--accent); }
+
+/* --- Research images --- */
+.research-block { margin-top: 2.5rem; }
+.research-block h2 { margin-bottom: 0.8rem; }
+
+.research-images {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem; margin: 1.5rem 0;
+}
+
+@media (max-width: 600px) { .research-images { grid-template-columns: 1fr; } }
+
+.research-img {
+  width: 100%; aspect-ratio: 4/3; background: var(--highlight);
+  border: 1px solid var(--rule); border-radius: 3px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+
+.research-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.research-img .img-placeholder {
+  font-family: var(--font-mono); font-size: 0.58rem; color: var(--muted);
+  letter-spacing: 0.05em; text-transform: uppercase; text-align: center; padding: 0.5rem;
+}
+
+.research-img .caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(26, 26, 26, 0.75); color: var(--paper);
+  font-size: 0.72rem; padding: 0.4rem 0.6rem; line-height: 1.4;
+}
+
+/* --- Publications --- */
+.pub {
+  margin-bottom: 1.8rem; padding-left: 1rem;
+  border-left: 2px solid var(--rule); transition: border-color 0.2s;
+}
+.pub:hover { border-left-color: var(--accent); }
+
+.pub .venue {
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem;
+}
+.pub .title { font-size: 1rem; font-weight: 500; margin-bottom: 0.25rem; line-height: 1.4; }
+.pub .authors { font-size: 0.85rem; color: var(--muted); font-style: italic; }
+.pub .doi { font-family: var(--font-mono); font-size: 0.62rem; margin-top: 0.3rem; letter-spacing: 0.04em; }
+.pub .doi a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.pub .doi a:hover { border-bottom-color: var(--accent); }
+
+/* --- CV --- */
+.cv-entry { margin-bottom: 1.5rem; }
+.cv-entry .period { font-family: var(--font-mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.04em; }
+.cv-entry .role { font-weight: 600; font-size: 1rem; margin-top: 0.15rem; }
+.cv-entry .place { font-size: 0.9rem; color: var(--muted); }
+.cv-entry .detail { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; font-style: italic; }
+
+/* --- Press --- */
+.press-item { margin-bottom: 0.6rem; font-size: 0.9rem; }
+.press-item .outlet { font-weight: 600; }
+
+/* --- Footer --- */
+footer {
+  padding: 2.5rem 0; text-align: center;
+  font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.06em;
+}
+
+/* --- Fade in --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+header, section { animation: fadeUp 0.6s ease-out both; }
+section:nth-child(2) { animation-delay: 0.06s; }
+section:nth-child(3) { animation-delay: 0.10s; }
+section:nth-child(4) { animation-delay: 0.14s; }
+section:nth-child(5) { animation-delay: 0.18s; }
+section:nth-child(6) { animation-delay: 0.22s; }
+</style>
 </head>
 <body>
+<div class="container">
 
-    <!-- Header Image with Text -->
-    <div class="header-image">
-        <img src="path_to_your_image.jpg" alt="Header Image">
-        <div class="header-text">Luke Leckie</div>
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <div class="portrait">
+      <!-- Replace: <img src="photo.jpg" alt="Luke Leckie"> -->
+      <span class="portrait-placeholder">Your photo</span>
     </div>
-
-    <!-- Black Box with Text -->
-    <div class="black-box">
-        I am a PhD student working with Nathalie Stroeymeyt in the Ant Epidemiology Lab, Univesity of Bristol.
-        The hierachical nature of biological organisation fills me with awe. I am interested in developing an understanding
-      of the interplay between different levels of organisation through quantitative and computational analysis. I have used ants
-      as a model system to study architecure, social networks, neurobiology, and genetics.
+    <div class="header-text">
+      <h1>Luke Leckie</h1>
+      <div class="subtitle">Postdoctoral researcher &middot; Indiana University Bloomington</div>
+      <nav>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#positions">Positions</a>
+        <a href="#press">Press</a>
+      </nav>
+      <div class="links-bar">
+        <a href="mailto:lleckie@iu.edu">lleckie@iu.edu</a>
+        <a href="https://scholar.google.com/citations?user=TxlOV5AAAAAJ" target="_blank">Google Scholar</a>
+        <a href="https://github.com/Luke-Leckie" target="_blank">GitHub</a>
+        <a href="https://orcid.org/0009-0001-5693-6081" target="_blank">ORCID</a>
+      </div>
     </div>
+  </div>
+</header>
 
-    <!-- Projects Strip -->
-    <div class="projects-strip">
-        Projects
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="section-label">About</div>
+  <p>Gregory Bateson proposed that mind is not bounded by the skin but is immanent in the wider system of organism and environment&mdash;in the pathways along which information travels and the patterns in which it is organised. My research takes this seriously. I study how the <em>form</em> of the environments organisms inhabit and navigate&mdash;spatial, social, semantic&mdash;shapes the dynamics of cognition and behaviour, and how perturbations to these forms manifest as disruptions to health.</p>
+  <p>This leads me across two domains. In social insects, I investigate how ants modify the architecture of their built environment in response to infectious disease, restructuring the spatial networks through which nestmates interact. In human cognition, I study how the structure of meaning in language offers a window into the mind: the geometry and dynamics of semantic trajectories during speech reveal how individuals search through conceptual space, and how this search goes awry in psychotic disorders.</p>
+  <p>Across both, the connecting thread is that structure matters. The topology of a nest network shapes epidemic risk; the topology of a semantic trajectory reflects cognitive organisation. I develop tools from network science, topological data analysis, foraging theory, and dynamical systems modelling to make these structures visible and quantifiable.</p>
+</section>
+
+<!-- ===== RESEARCH ===== -->
+<section id="research">
+  <div class="section-label">Research</div>
+
+  <div class="research-block">
+    <h2>Architectural immunity in social insects</h2>
+    <p>Social insect colonies face a fundamental tension: the dense contact that enables cooperation also facilitates the spread of infectious disease. I discovered that <em>Lasius niger</em> ants resolve this by actively restructuring their nest architecture when exposed to pathogens. Using x-ray micro-CT imaging to track three-dimensional nest morphogenesis, spatial network analysis, and agent-based simulations of disease transmission, I showed that pathogen-exposed colonies build nests with increased entrance spacing, reduced network efficiency, higher modularity, and chambers positioned in less central network locations&mdash;all changes that inhibit transmission. Simulations revealed that these architectural modifications synergise with behavioural self-isolation, providing enhanced collective protection.</p>
+    <div class="research-images">
+      <div class="research-img">
+        <!-- Replace: <img src="ants-1.jpg" alt="CT reconstruction of ant nest"> -->
+        <span class="img-placeholder">CT scan reconstruction /<br>nest morphogenesis</span>
+      </div>
+      <div class="research-img">
+        <!-- Replace: <img src="ants-2.jpg" alt="Nest spatial network"> -->
+        <span class="img-placeholder">Spatial network /<br>simulation results</span>
+      </div>
     </div>
+  </div>
 
-    <!-- Content Section -->
-    <div class="content-section">
-        <!-- Left Photo -->
-        <img src="path_to_another_image.jpg" alt="Content Image">
-
-        <!-- Right Text -->
-        <div class="content-text">
-            <div class="subtitle">Architecture</div>
-            <p>
-                Your block of text here...
-            </p>
-        </div>
+  <div class="research-block">
+    <h2>Semantic structure as a window into the mind</h2>
+    <p>When we speak, we navigate a landscape of meaning&mdash;dwelling within clusters of related concepts before switching to new semantic territory. I developed methods to characterise this process in naturalistic speech by combining contextual language model embeddings with optimal foraging theory. By casting life-story narratives as trajectories through high-dimensional semantic space, I study how individuals balance exploitation (elaborating within a topic) against exploration (transitioning between topics), and how psychosis disrupts this balance. Different symptom dimensions&mdash;positive, negative, cognitive&mdash;are each associated with distinct foraging signatures, linking clinical phenomenology to the dynamics of cognitive search.</p>
+    <p>I also use persistent homology to characterise the geometric structure of these trajectories. Psychosis symptom severity is coupled to the topology of meaning in narrative: semantic loops, voids, and linearity each track different symptom dimensions, mapping onto clinical descriptions of circumstantial speech, poverty of content, and poverty of speech. A generative model of search dynamics reproduces these topological features, providing evidence that the geometry of thought is shaped by the balance of exploitation and exploration.</p>
+    <div class="research-images">
+      <div class="research-img">
+        <!-- Replace: <img src="psych-1.jpg" alt="Semantic trajectory visualisation"> -->
+        <span class="img-placeholder">Semantic trajectory /<br>foraging dynamics</span>
+      </div>
+      <div class="research-img">
+        <!-- Replace: <img src="psych-2.jpg" alt="Persistent homology of narrative"> -->
+        <span class="img-placeholder">Persistent homology /<br>topology of meaning</span>
+      </div>
     </div>
+  </div>
+</section>
 
+<!-- ===== PUBLICATIONS ===== -->
+<section id="publications">
+  <div class="section-label">Publications</div>
+
+  <div class="pub">
+    <div class="venue">Science &middot; 2025</div>
+    <div class="title">Architectural immunity: ants modify their nest networks to fight epidemics</div>
+    <div class="authors"><strong>Leckie L</strong>, Sinha Andon M, Bruce K, Stroeymeyt N</div>
+    <div class="doi"><a href="https://doi.org/10.1126/science.ads5930">10.1126/science.ads5930</a></div>
+  </div>
+
+  <div class="pub">
+    <div class="venue">Scientific Reports &middot; 2025</div>
+    <div class="title">Synergistic effect of the next generation insecticide flupyradifurone with a fungal pathogen in the ant <em>Lasius niger</em></div>
+    <div class="authors">Schl&auml;ppi D, Al-Hashemi A, Wasif V, Masson F, <strong>Leckie L</strong>, Stroeymeyt N</div>
+    <div class="doi"><a href="https://doi.org/10.1038/s41598-025-20393-z">10.1038/s41598-025-20393-z</a></div>
+  </div>
+
+  <div class="pub">
+    <div class="venue">Preprint</div>
+    <div class="title">Integrating language model embeddings and topic modeling reveals psychosis-associated disruptions to semantic foraging in narrative recollections</div>
+    <div class="authors"><strong>Leckie L</strong>, Lundin N, Bolbecker A, Brown J, Hetrick W, Minor K, O'Donnell B, Todd P, Foster J</div>
+    <div class="doi"><a href="#">PsyArXiv</a></div>
+  </div>
+
+  <div class="pub">
+    <div class="venue">Preprint</div>
+    <div class="title">The content and structure of dreams are coupled to affect</div>
+    <div class="authors"><strong>Leckie L</strong>, Bershad A, Heppler J, McClay M, Rappe S, Foster J</div>
+    <div class="doi"><a href="https://doi.org/10.48550/arXiv.2409.14279">arXiv: 2409.14279</a></div>
+  </div>
+</section>
+
+<!-- ===== POSITIONS ===== -->
+<section id="positions">
+  <div class="section-label">Positions &amp; Education</div>
+  <div class="cv-entry">
+    <div class="period">2024 &ndash; present</div>
+    <div class="role">Postdoctoral Researcher</div>
+    <div class="place">Indiana University Bloomington &middot; Cognitive Sciences &amp; Informatics</div>
+    <div class="detail">Advisor: Prof. Jacob G. Foster</div>
+  </div>
+  <div class="cv-entry">
+    <div class="period">Sept &ndash; Dec 2024</div>
+    <div class="role">Mathematics of Intelligences Research Fellow</div>
+    <div class="place">UCLA &middot; Institute for Pure and Applied Mathematics</div>
+  </div>
+  <div class="cv-entry">
+    <div class="period">2020 &ndash; 2024</div>
+    <div class="role">PhD in Biology</div>
+    <div class="place">University of Bristol &middot; School of Biological Sciences</div>
+    <div class="detail">Advisor: Dr. Nathalie Stroeymeyt</div>
+  </div>
+  <div class="cv-entry">
+    <div class="period">2016 &ndash; 2020</div>
+    <div class="role">MSci Biology (1st Class)</div>
+    <div class="place">University of Bristol</div>
+  </div>
+</section>
+
+<!-- ===== PRESS ===== -->
+<section id="press">
+  <div class="section-label">Press</div>
+  <div class="press-item"><span class="outlet">National Public Radio</span> &middot; Radio interview on ant behaviour research, Oct 2025</div>
+  <div class="press-item"><span class="outlet">Canadian Broadcasting Company</span> &middot; Radio interview, Nov 2025</div>
+  <div class="press-item"><span class="outlet">Austrian Broadcasting Corporation (ORF)</span> &middot; Radio interview, Oct 2025</div>
+</section>
+
+</div>
+
+<footer>
+  <div class="container">
+    Luke Leckie &middot; lleckie@iu.edu &middot; Indiana University Bloomington
+  </div>
+</footer>
 </body>
 </html>

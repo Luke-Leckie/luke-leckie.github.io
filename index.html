@@ -176,8 +176,7 @@ section:nth-child(6) { animation-delay: 0.22s; }
 <header>
   <div class="header-inner">
     <div class="portrait">
-      <!-- Replace: <img src="photo.jpg" alt="Luke Leckie"> -->
-      <span class="portrait-placeholder">Your photo</span>
+      <img src="profile.jpg" alt="Luke Leckie">
     </div>
     <div class="header-text">
       <h1>Luke Leckie</h1>
@@ -189,7 +188,7 @@ section:nth-child(6) { animation-delay: 0.22s; }
         <a href="#press">Press</a>
       </nav>
       <div class="links-bar">
-        <a href="mailto:lleckie@iu.edu">lleckie@iu.edu</a>
+        <a href="#" onclick="window.location='mai'+'lto:'+'lleckie'+'@'+'iu.edu'; return false;">lleckie@iu.edu</a>  
         <a href="https://scholar.google.com/citations?user=TxlOV5AAAAAJ" target="_blank">Google Scholar</a>
         <a href="https://github.com/Luke-Leckie" target="_blank">GitHub</a>
         <a href="https://orcid.org/0009-0001-5693-6081" target="_blank">ORCID</a>
@@ -201,9 +200,17 @@ section:nth-child(6) { animation-delay: 0.22s; }
 <!-- ===== ABOUT ===== -->
 <section id="about">
   <div class="section-label">About</div>
-  <p>Gregory Bateson proposed that mind is not bounded by the skin but is immanent in the wider system of organism and environment&mdash;in the pathways along which information travels and the patterns in which it is organised. My research takes this seriously. I study how the <em>form</em> of the environments organisms inhabit and navigate&mdash;spatial, social, semantic&mdash;shapes the dynamics of cognition and behaviour, and how perturbations to these forms manifest as disruptions to health.</p>
-  <p>This leads me across two domains. In social insects, I investigate how ants modify the architecture of their built environment in response to infectious disease, restructuring the spatial networks through which nestmates interact. In human cognition, I study how the structure of meaning in language offers a window into the mind: the geometry and dynamics of semantic trajectories during speech reveal how individuals search through conceptual space, and how this search goes awry in psychotic disorders.</p>
-  <p>Across both, the connecting thread is that structure matters. The topology of a nest network shapes epidemic risk; the topology of a semantic trajectory reflects cognitive organisation. I develop tools from network science, topological data analysis, foraging theory, and dynamical systems modelling to make these structures visible and quantifiable.</p>
+  <p>My research investigates how organisms navigate and structure their internal and external worlds, 
+     and how these behaviours change under perturbation, with relevance for public health. </p>
+  <p>In human language, meaning traces out trajectories through semantic space. The structure of these trajectories 
+    and the dynamics with which individuals forage for semantic information provides a quantitative window into the cognition 
+    and phenomenology of psychiatric disorders, including schizophrenia and depression. </p>
+  <p>In social animals such as ants and humans, spatial structuring in the environment shapes social interactions and transmission dynamics. By modifying
+     their built environments, animal collectives can inhibit the spread of infectious disease.
+  <p> My research is carried out through the lens of behavioural ecology. I develop tools from topology, 
+    natural language processing, foraging theory, and dynamical systems modelling to 
+    characterise behavioural changes across highly diverse study systems.</p>
+
 </section>
 
 <!-- ===== RESEARCH ===== -->
@@ -211,32 +218,28 @@ section:nth-child(6) { animation-delay: 0.22s; }
   <div class="section-label">Research</div>
 
   <div class="research-block">
-    <h2>Architectural immunity in social insects</h2>
-    <p>Social insect colonies face a fundamental tension: the dense contact that enables cooperation also facilitates the spread of infectious disease. I discovered that <em>Lasius niger</em> ants resolve this by actively restructuring their nest architecture when exposed to pathogens. Using x-ray micro-CT imaging to track three-dimensional nest morphogenesis, spatial network analysis, and agent-based simulations of disease transmission, I showed that pathogen-exposed colonies build nests with increased entrance spacing, reduced network efficiency, higher modularity, and chambers positioned in less central network locations&mdash;all changes that inhibit transmission. Simulations revealed that these architectural modifications synergise with behavioural self-isolation, providing enhanced collective protection.</p>
-    <div class="research-images">
-      <div class="research-img">
-        <!-- Replace: <img src="ants-1.jpg" alt="CT reconstruction of ant nest"> -->
-        <span class="img-placeholder">CT scan reconstruction /<br>nest morphogenesis</span>
-      </div>
-      <div class="research-img">
-        <!-- Replace: <img src="ants-2.jpg" alt="Nest spatial network"> -->
-        <span class="img-placeholder">Spatial network /<br>simulation results</span>
+    <h2>Semantic search dynamics in naturalistic speech</h2>
+    <p>Conceptual navigation in free speech can be understood within a patch foraging framework. Efficient retrieval of semantic information balances exploitation within clusters of related conceptual information (e.g., elaborating on a topic) against exploration (e.g., transitioning to a new topic).
+       I have developed methods to model semantic foraging in naturalistic speech to show that the balance of 
+       exploitation-exploration varies across psychotic symptom dimensions.</p>
+       <p> By developing techniques that combine topological data analysis with semantic embeddings, my research investigates how psychiatric disturbances disrupt
+         how meaning is shaped into narrative arcs. 
+       </p>
+    <div class="research-images" style="grid-template-columns: 1fr;">
+      <div class="research-img" style="aspect-ratio: auto;">
+        <img src="psychiatry.png" alt="Simplicial complexes of narrative semantic trajectories">
       </div>
     </div>
   </div>
 
   <div class="research-block">
-    <h2>Semantic structure as a window into the mind</h2>
-    <p>When we speak, we navigate a landscape of meaning&mdash;dwelling within clusters of related concepts before switching to new semantic territory. I developed methods to characterise this process in naturalistic speech by combining contextual language model embeddings with optimal foraging theory. By casting life-story narratives as trajectories through high-dimensional semantic space, I study how individuals balance exploitation (elaborating within a topic) against exploration (transitioning between topics), and how psychosis disrupts this balance. Different symptom dimensions&mdash;positive, negative, cognitive&mdash;are each associated with distinct foraging signatures, linking clinical phenomenology to the dynamics of cognitive search.</p>
-    <p>I also use persistent homology to characterise the geometric structure of these trajectories. Psychosis symptom severity is coupled to the topology of meaning in narrative: semantic loops, voids, and linearity each track different symptom dimensions, mapping onto clinical descriptions of circumstantial speech, poverty of content, and poverty of speech. A generative model of search dynamics reproduces these topological features, providing evidence that the geometry of thought is shaped by the balance of exploitation and exploration.</p>
-    <div class="research-images">
-      <div class="research-img">
-        <!-- Replace: <img src="psych-1.jpg" alt="Semantic trajectory visualisation"> -->
-        <span class="img-placeholder">Semantic trajectory /<br>foraging dynamics</span>
-      </div>
-      <div class="research-img">
-        <!-- Replace: <img src="psych-2.jpg" alt="Persistent homology of narrative"> -->
-        <span class="img-placeholder">Persistent homology /<br>topology of meaning</span>
+    <h2>Architectural immunity in social insects</h2>
+    <p>My PhD (published in Science) has shown that ant groups respond to infectious disease challenges by actively modifying the
+       network structure of their nests to become more transmission inhibitory (e.g., more modular, less denseley connected).
+      This work provides the first evidence of a non-human animal manipulating the structure of their built environment as a form of epidemic defense.</p>
+    <div class="research-images" style="grid-template-columns: 1fr;">
+      <div class="research-img" style="aspect-ratio: auto;">
+        <img src="nests.png" alt="Micro-CT reconstructions of ant nest morphogenesis over 6 days">
       </div>
     </div>
   </div>
@@ -245,20 +248,6 @@ section:nth-child(6) { animation-delay: 0.22s; }
 <!-- ===== PUBLICATIONS ===== -->
 <section id="publications">
   <div class="section-label">Publications</div>
-
-  <div class="pub">
-    <div class="venue">Science &middot; 2025</div>
-    <div class="title">Architectural immunity: ants modify their nest networks to fight epidemics</div>
-    <div class="authors"><strong>Leckie L</strong>, Sinha Andon M, Bruce K, Stroeymeyt N</div>
-    <div class="doi"><a href="https://doi.org/10.1126/science.ads5930">10.1126/science.ads5930</a></div>
-  </div>
-
-  <div class="pub">
-    <div class="venue">Scientific Reports &middot; 2025</div>
-    <div class="title">Synergistic effect of the next generation insecticide flupyradifurone with a fungal pathogen in the ant <em>Lasius niger</em></div>
-    <div class="authors">Schl&auml;ppi D, Al-Hashemi A, Wasif V, Masson F, <strong>Leckie L</strong>, Stroeymeyt N</div>
-    <div class="doi"><a href="https://doi.org/10.1038/s41598-025-20393-z">10.1038/s41598-025-20393-z</a></div>
-  </div>
 
   <div class="pub">
     <div class="venue">Preprint</div>
@@ -272,6 +261,20 @@ section:nth-child(6) { animation-delay: 0.22s; }
     <div class="title">The content and structure of dreams are coupled to affect</div>
     <div class="authors"><strong>Leckie L</strong>, Bershad A, Heppler J, McClay M, Rappe S, Foster J</div>
     <div class="doi"><a href="https://doi.org/10.48550/arXiv.2409.14279">arXiv: 2409.14279</a></div>
+  </div>
+
+  <div class="pub">
+    <div class="venue">Science &middot; 2025</div>
+    <div class="title">Architectural immunity: ants modify their nest networks to fight epidemics</div>
+    <div class="authors"><strong>Leckie L</strong>, Sinha Andon M, Bruce K, Stroeymeyt N</div>
+    <div class="doi"><a href="https://doi.org/10.1126/science.ads5930">10.1126/science.ads5930</a></div>
+  </div>
+
+  <div class="pub">
+    <div class="venue">Scientific Reports &middot; 2025</div>
+    <div class="title">Synergistic effect of the next generation insecticide flupyradifurone with a fungal pathogen in the ant <em>Lasius niger</em></div>
+    <div class="authors">Schl&auml;ppi D, Al-Hashemi A, Wasif V, Masson F, <strong>Leckie L</strong>, Stroeymeyt N</div>
+    <div class="doi"><a href="https://doi.org/10.1038/s41598-025-20393-z">10.1038/s41598-025-20393-z</a></div>
   </div>
 </section>
 
@@ -313,9 +316,4 @@ section:nth-child(6) { animation-delay: 0.22s; }
 </div>
 
 <footer>
-  <div class="container">
-    Luke Leckie &middot; lleckie@iu.edu &middot; Indiana University Bloomington
-  </div>
-</footer>
-</body>
-</html>
+  <div class="co
